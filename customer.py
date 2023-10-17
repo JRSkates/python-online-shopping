@@ -10,7 +10,7 @@ class Customer:
     self.orders = []
 
   def add_to_cart(self, product, quantity=1):
-    self.cart.append(product, quantity)
+    self.shopping_cart.add_item(product, quantity)
 
   def view_cart(self):
     return self.shopping_cart.view_cart()

@@ -9,7 +9,7 @@ class ShoppingCart:
     self.items = [item for item in self.items if item["product"] != product]
 
   def view_cart(self):
-    return [f"{item['product'].name} - ${item['product'].price} x {item['quantity']}"
+    return [f"{item['product'].name} - £{item['product'].price} x {item['quantity']}"
       for item in self.items]
   
   def get_total_price(self):
