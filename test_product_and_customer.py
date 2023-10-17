@@ -1,5 +1,7 @@
 from customer import Customer
 from product import Product
+from shopping_cart import ShoppingCart
+from order import Order
 
 def test_product_details():
   product = Product(1, "Laptop", 800)
