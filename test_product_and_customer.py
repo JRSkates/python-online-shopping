@@ -3,22 +3,15 @@ from product import Product
 from shopping_cart import ShoppingCart
 from order import Order
 
-def test_product_details():
-  product = Product(1, "Laptop", 800)
-  assert product.get_details() == "Laptop - £800"
+def test_shopping_cart():
+  cart = ShoppingCart()
+  product = Product(1, "Phone", 300)
+  assert product.get_details() == "Phone - £300"
 
-def test_customer_operations():
-  product1 = Product(1, "Mouse", 30)
-  product2 = Product(2, "Keyboard", 50)
-  customer = Customer(1, "Jack", "jack@email.com")
+  cart.add_item(product, 2)
+  assert len(cart.view_cart()) == 1
+  assert cart.get_total_price() == 600
 
-  customer.add_to_cart(product1)
-  customer.add_to_cart(product2)
-
-  cart_items = customer.view_cart()
-  assert len(cart_items) == 2
-  assert "Mouse - £30" in cart_items
-  assert "Keyboard - £50" in cart_items
-
-  total_price = customer.checkout()
-  assert total_price == 80
+  cart.remove_item(product)
+  assert len(cart.view_cart()) == 0
+  assert cart.get_total_price() == 0
