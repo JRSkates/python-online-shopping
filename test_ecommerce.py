@@ -12,3 +12,7 @@ def test_add_category_and_product():
   ecommerce_system.add_category(category)
   assert len(ecommerce_system.categories) == 1
   assert len(inventory.products) == 1
+  assert product in inventory.products
+  assert inventory.update_stock(product, 3) is True
+  assert inventory.products[product] == 2
+  assert inventory.update_stock(product, 5) is False
